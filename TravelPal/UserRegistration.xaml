@@ -1,0 +1,81 @@
+﻿<Window x:Class="TravelPal.UserRegistration"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:TravelPal"
+        mc:Ignorable="d"
+        Title="UserRegistration" Height="500" Width="600" Background="MediumSlateBlue">
+    <Grid>
+        <Grid.RowDefinitions>
+                <RowDefinition Height="20"/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition Height="20"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="20"/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition Width="20"/>
+        </Grid.ColumnDefinitions>
+
+        <Label
+         VerticalAlignment="Center"
+         HorizontalAlignment="Center"
+         FontSize="50"
+         Content="User Registration"
+         Grid.Column="1"
+         Grid.Row="1"
+         Grid.ColumnSpan="2"/>
+        <Label
+         VerticalAlignment="Top"
+         HorizontalContentAlignment="Center"
+         Content="Username"
+         Margin="0 10"
+         Grid.Row="2"
+         Grid.Column="1"/>
+        <TextBox
+         Margin="30 0"
+         VerticalAlignment="Center"            
+         Grid.Row="2"
+         Grid.Column="1"/>
+        <Label
+         VerticalAlignment="Top"
+         HorizontalContentAlignment="Center"
+         Content="Password"
+         Margin="0 10"
+         Grid.Row="3"
+         Grid.Column="1"/>
+        <TextBox
+         Margin="30 0"
+         VerticalAlignment="Center"            
+         Grid.Row="3"
+         Grid.Column="1"/>
+
+        <Label
+         VerticalAlignment="Top"
+         HorizontalContentAlignment="Center"
+         Content="Country"
+         Margin="0 10"
+         Grid.Row="2"
+         Grid.Column="2"/>
+        
+        <ComboBox
+         Margin="30 0"
+         VerticalAlignment="Center"            
+         Grid.Row="2"
+         Grid.Column="2"/>
+
+        <Button
+         HorizontalAlignment="Center"
+         VerticalAlignment="Center"
+         Padding="10"
+         FontSize="15"
+         Content="Register"
+         Grid.Row="4"
+         Grid.Column="1"/>
+    </Grid>
+</Window>
