@@ -1,0 +1,138 @@
+﻿<Window x:Class="TravelPal.TravelDetails"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:TravelPal"
+        mc:Ignorable="d"
+        Title="TravelDetails" Height="500" Width="600" Background="MediumSlateBlue">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="20"/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition Height="20"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="20"/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition Width="20"/>
+        </Grid.ColumnDefinitions>
+        <Label
+         VerticalAlignment="Center"
+         HorizontalAlignment="Center"
+         FontSize="50"
+         Content="Travel Details"
+         Grid.Column="1"
+         Grid.Row="1"
+         Grid.ColumnSpan="3"/>
+        <Label
+         Content="Packinglist"
+         Grid.Row="2"
+         Grid.Column="3"
+         VerticalAlignment="Bottom" 
+         HorizontalContentAlignment="Center"
+            />
+        <Label
+         VerticalAlignment="Top"
+         HorizontalContentAlignment="Center"
+         Content="City"
+         Margin="0 10"
+         Grid.Row="2"
+         Grid.Column="1"/>
+        <TextBlock
+         Margin="30 0"
+         VerticalAlignment="Center"            
+         Grid.Row="2"
+         Grid.Column="1"/>
+        <Label
+        VerticalAlignment="Top"
+        HorizontalContentAlignment="Center"
+        Content="Destination"
+        Margin="0 10"
+        Grid.Row="3"
+        Grid.Column="1"/>
+        <TextBlock
+        Margin="30 0"
+        VerticalAlignment="Center"            
+        Grid.Row="3"
+        Grid.Column="1"/>
+        <Label
+        VerticalAlignment="Top"
+        HorizontalContentAlignment="Center"
+        Content="Traveler's"
+        Margin="0 10"
+        Grid.Row="4"
+        Grid.Column="1"/>
+        <TextBlock
+        Margin="30 0"
+        VerticalAlignment="Center"            
+        Grid.Row="4"
+        Grid.Column="1"/>
+        <Label
+        VerticalAlignment="Top"
+        HorizontalContentAlignment="Center"
+        Content="Travel purpose"
+        Margin="0 10"
+        Grid.Row="2"
+        Grid.Column="2"/>
+        <TextBlock
+        Margin="30 0"
+        VerticalAlignment="Center"            
+        Grid.Row="2"
+        Grid.Column="2"/>
+        <Label
+        VerticalAlignment="Top"
+        HorizontalContentAlignment="Center"
+        Content="Travel specifics"
+        Margin="0 10"
+        Grid.Row="3"
+        Grid.Column="2"/>
+        <TextBlock
+        Margin="30 0"
+        VerticalAlignment="Center"            
+        Grid.Row="3"
+        Grid.Column="2"/>
+        <Label
+        VerticalAlignment="Top"
+        HorizontalContentAlignment="Center"
+        Content="Travel date"
+        Margin="0 10"
+        Grid.Row="4"
+        Grid.Column="2"/>
+        <TextBlock
+         Margin="30 0"
+         VerticalAlignment="Center"            
+         Grid.Row="4"
+         Grid.Column="2"/>
+        <ListView
+         Grid.Row="3"
+         Grid.Column="3"  
+         Grid.RowSpan="3"
+         Margin="0 0 0 38"            
+            />
+        <Button         
+         HorizontalAlignment="Right"
+         VerticalAlignment="Bottom"
+         Content="Save"
+         Grid.Column="3" 
+         Grid.Row="5"
+         Padding="10"
+         />
+        <Button         
+         HorizontalAlignment="Center"
+         VerticalAlignment="Center"
+         Content="Edit"
+         Grid.Column="1" 
+         Grid.Row="5"
+         Padding="10"
+         />
+    </Grid>
+    
+    
+</Window>
