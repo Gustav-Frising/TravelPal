@@ -5,20 +5,22 @@ namespace TravelPal.Managers
 {
     public class UserManager
     {
-        public static List<IUser> Users { get; set; } = new()
+        public List<IUser> Users { get; set; } = new()
         {
 
-            new User("test", "password",Enums.Country.Sweden),
+            new User("test", "password", Enums.Country.Sweden),
             new Admin("admin", "password", Enums.Country.Sweden)
 
         };
-        public static IUser? SignedInUser { get; set; }
+        public IUser? SignedInUser { get; set; }
 
-        public bool AddUSer(IUser user)
+        public bool AddUser(IUser user)
         {
             if (ValidateUsername(user.Username))
             {
-                Users.Add(user);
+                User newUser = new(user.Username, user.Password, user.Location);
+
+                Users.Add(newUser);
 
                 return true;
             }
@@ -45,7 +47,7 @@ namespace TravelPal.Managers
             }
             return isValidUSername;
         }
-        public static bool SignInUser(string username, string password)
+        public bool SignInUser(string username, string password)
         {
             foreach (var user in Users)
             {
@@ -59,9 +61,9 @@ namespace TravelPal.Managers
             }
             return false;
         }
-        public static void SignOutUser()
+        public void SignOutUser()
         {
-
+            SignedInUser = null;
         }
 
 

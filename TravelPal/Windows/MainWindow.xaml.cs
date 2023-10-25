@@ -16,11 +16,12 @@ namespace TravelPal
         private void btnSignIn_Click(object sender, RoutedEventArgs e)
         {
             string username = txtUsername.Text;
-            string password = txtPassword.Password;
+            string password = txtPassword.Text;
 
             //Använd usermanager för att logga in
+            UserManager newUserManager = new();
 
-            bool isSuccessfulSignIn = UserManager.SignInUser(username, password);
+            bool isSuccessfulSignIn = newUserManager.SignInUser(username, password);
 
             //lyckass inloggning öppna Travels
             if (isSuccessfulSignIn)
@@ -34,6 +35,13 @@ namespace TravelPal
                 //misslyckas visa varningsmeddelande
                 MessageBox.Show("Invalid username or password!, Warning");
             }
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            UserRegistration userRegistrationWindow = new();
+            userRegistrationWindow.Show();
+            Close();
         }
     }
 }

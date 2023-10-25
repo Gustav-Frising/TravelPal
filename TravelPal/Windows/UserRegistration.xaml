@@ -76,6 +76,14 @@
          FontSize="15"
          Content="Register"
          Grid.Row="4"
-         Grid.Column="1"/>
+         Grid.Column="1" Click="Button_Click"/>
+        <Button
+         HorizontalAlignment="Center"
+         VerticalAlignment="Center"
+         Padding="10"
+         FontSize="15"
+         Content="Back"
+         Grid.Row="4"
+         Grid.Column="2" Click="Button_Click_1"/>
     </Grid>
 </Window>
