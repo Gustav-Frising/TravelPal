@@ -1,9 +1,10 @@
 ﻿using System.Collections.Generic;
 using TravelPal.Enums;
+using TravelPal.Models.Travels;
 
-namespace TravelPal.Models
+namespace TravelPal.Models.Users
 {
-    class User : IUser
+    public class User : IUser
     {
         public List<Travel> Travels { get; set; }
         public string Username { get; set; }

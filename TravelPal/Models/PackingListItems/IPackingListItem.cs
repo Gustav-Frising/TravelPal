@@ -1,4 +1,4 @@
-﻿namespace TravelPal.Models
+﻿namespace TravelPal.Models.PackingListItems
 {
     public interface IPackingListItem
     {

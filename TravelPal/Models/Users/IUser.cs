@@ -1,8 +1,8 @@
 ﻿using TravelPal.Enums;
 
-namespace TravelPal.Models
+namespace TravelPal.Models.Users
 {
-    interface IUser
+    public interface IUser
     {
         public string Username { get; set; }
         public string Password { get; set; }

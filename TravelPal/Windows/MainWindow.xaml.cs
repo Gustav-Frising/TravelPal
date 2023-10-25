@@ -1,17 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
+﻿using System.Windows;
+using TravelPal.Managers;
 
 namespace TravelPal
 {
@@ -23,6 +11,29 @@ namespace TravelPal
         public MainWindow()
         {
             InitializeComponent();
+        }
+
+        private void btnSignIn_Click(object sender, RoutedEventArgs e)
+        {
+            string username = txtUsername.Text;
+            string password = txtPassword.Password;
+
+            //Använd usermanager för att logga in
+
+            bool isSuccessfulSignIn = UserManager.SignInUser(username, password);
+
+            //lyckass inloggning öppna Travels
+            if (isSuccessfulSignIn)
+            {
+                Travels TravelsWindow = new();
+                TravelsWindow.Show();
+                Close();
+            }
+            else
+            {
+                //misslyckas visa varningsmeddelande
+                MessageBox.Show("Invalid username or password!, Warning");
+            }
         }
     }
 }

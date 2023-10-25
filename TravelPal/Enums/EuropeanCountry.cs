@@ -2,5 +2,6 @@
 {
     enum EuropeanCountry
     {
+        Sweden
     }
 }
