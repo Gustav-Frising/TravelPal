@@ -15,8 +15,8 @@ namespace TravelPal
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            UserManager newUserManager = new();
-            newUserManager.SignOutUser();
+            UserManager.SignOutUser();
+
 
             MainWindow mainwindow = new();
             mainwindow.Show();

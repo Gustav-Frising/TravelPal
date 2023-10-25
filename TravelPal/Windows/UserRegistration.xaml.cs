@@ -1,5 +1,7 @@
 ﻿using System.Windows;
+using TravelPal.Enums;
 using TravelPal.Managers;
+using TravelPal.Models.Users;
 
 namespace TravelPal
 {
@@ -10,19 +12,29 @@ namespace TravelPal
     {
         public UserRegistration()
         {
+
             InitializeComponent();
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
+            User newUser = new(txtUsername.Text, txtPassword.Text, (Country)cbLocation.SelectedIndex);
+
+            bool isUserAdded = UserManager.AddUser(newUser);
+            if (isUserAdded)
+            {
+                MessageBox.Show("user has been added succesufully");
+            }
+            else
+            {
+                MessageBox.Show("User could not be added");
+            }
+
 
         }
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
-            UserManager newUserManager = new();
-            newUserManager.SignOutUser();
-
             MainWindow mainwindow = new();
             mainwindow.Show();
 

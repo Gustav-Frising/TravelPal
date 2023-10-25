@@ -38,6 +38,7 @@
          Grid.Row="2"
          Grid.Column="1"/>
         <TextBox
+         Name="txtUsername"
          Margin="30 0"
          VerticalAlignment="Center"            
          Grid.Row="2"
@@ -50,6 +51,7 @@
          Grid.Row="3"
          Grid.Column="1"/>
         <TextBox
+         Name="txtPassword"
          Margin="30 0"
          VerticalAlignment="Center"            
          Grid.Row="3"
@@ -64,6 +66,7 @@
          Grid.Column="2"/>
         
         <ComboBox
+         Name="cbLocation"
          Margin="30 0"
          VerticalAlignment="Center"            
          Grid.Row="2"

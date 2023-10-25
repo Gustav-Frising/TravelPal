@@ -110,6 +110,7 @@
          Grid.Row="2"
          Grid.Column="1"/>
         <ComboBox
+            Name="cbLocation"
          Margin=" 0 25 60 0"
          VerticalAlignment="Top"            
          Grid.Row="2"
@@ -123,10 +124,11 @@
          Grid.Row="2"
          Grid.Column="1"/>
         <ComboBox
+         Text="Vaccation"
          Margin="0 00 60 0"
          VerticalAlignment="Top"               
          Grid.Row="3"
-         Grid.Column="1"/>
+         Grid.Column="1"  />
 
         <Label            
          HorizontalAlignment="Right"

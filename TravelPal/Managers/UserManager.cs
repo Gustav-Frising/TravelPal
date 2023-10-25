@@ -3,18 +3,18 @@ using TravelPal.Models.Users;
 
 namespace TravelPal.Managers
 {
-    public class UserManager
+    public static class UserManager
     {
-        public List<IUser> Users { get; set; } = new()
+        public static List<IUser> Users { get; set; } = new()
         {
 
             new User("test", "password", Enums.Country.Sweden),
             new Admin("admin", "password", Enums.Country.Sweden)
 
         };
-        public IUser? SignedInUser { get; set; }
+        public static IUser? SignedInUser { get; set; }
 
-        public bool AddUser(IUser user)
+        public static bool AddUser(IUser user)
         {
             if (ValidateUsername(user.Username))
             {
@@ -26,15 +26,15 @@ namespace TravelPal.Managers
             }
             return false;
         }
-        public void RemoveUSer(IUser user)
+        public static void RemoveUSer(IUser user)
         {
 
         }
-        public bool UppdateUsername()
+        public static bool UppdateUsername()
         {
             return true;
         }
-        private bool ValidateUsername(string username)
+        private static bool ValidateUsername(string username)
         {
             bool isValidUSername = true;
 
@@ -47,7 +47,7 @@ namespace TravelPal.Managers
             }
             return isValidUSername;
         }
-        public bool SignInUser(string username, string password)
+        public static bool SignInUser(string username, string password)
         {
             foreach (var user in Users)
             {
@@ -61,7 +61,7 @@ namespace TravelPal.Managers
             }
             return false;
         }
-        public void SignOutUser()
+        public static void SignOutUser()
         {
             SignedInUser = null;
         }
