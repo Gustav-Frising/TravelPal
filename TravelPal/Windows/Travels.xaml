@@ -102,6 +102,7 @@
          /> 
         
         <ListView
+         Name="lstTravels"
          Grid.Row="3"
          Grid.Column="1"
          />

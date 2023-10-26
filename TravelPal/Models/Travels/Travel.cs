@@ -13,7 +13,7 @@ namespace TravelPal.Models.Travels
         public List<IPackingListItem> Packinglist { get; set; }
         public DateTime StartDate { get; set; }
         public DateTime EndDate { get; set; }
-        public uint TravelDays { get; set; }
+        public int TravelDays { get; set; }
 
         public Travel(string destination, Country country, int travellers)
         {

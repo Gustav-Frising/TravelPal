@@ -2,6 +2,7 @@
 using System.Windows;
 using System.Windows.Controls;
 using TravelPal.Enums;
+using TravelPal.Managers;
 using TravelPal.Models.Travels;
 
 namespace TravelPal
@@ -69,9 +70,14 @@ namespace TravelPal
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            Travel newTravel = new(txtUsername.Text, txtPassword.Text, (Country)cbLocation.SelectedIndex);
+            Travel newTravel = new(txtCity.Text, (Country)cbLocation.SelectedIndex, int.Parse(txtTravelers.Text));
 
+            TravelManager.AddTravel(newTravel);
 
+            Travels travelsWindow = new();
+            travelsWindow.Show();
+
+            Close();
         }
     }
 }

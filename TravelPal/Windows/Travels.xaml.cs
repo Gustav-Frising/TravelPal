@@ -1,5 +1,9 @@
-﻿using System.Windows;
+﻿using System;
+using System.Collections.Generic;
+using System.Windows;
+using System.Windows.Controls;
 using TravelPal.Managers;
+using TravelPal.Models.Travels;
 
 namespace TravelPal
 {
@@ -8,12 +12,30 @@ namespace TravelPal
     /// </summary>
     public partial class Travels : Window
     {
+        List<Travel> travels = TravelManager.Travels;
         public Travels()
         {
+
+
             InitializeComponent();
             // visa username och land
             lblUsername.Content = UserManager.SignedInUser.Username;
             lblCountry.Content = UserManager.SignedInUser.Location;
+            try
+            {
+
+                foreach (var travel in travels)
+                {
+                    ListViewItem item = new();
+                    item.Content = travel.GetInfo();
+                    item.Tag = travel;
+                    lstTravels.Items.Add(travel.Destination);
+                }
+            }
+            catch (NullReferenceException e)
+            {
+                MessageBox.Show(e.Message);
+            }
 
         }
 
