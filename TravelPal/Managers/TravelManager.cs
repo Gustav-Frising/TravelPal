@@ -11,11 +11,15 @@ namespace TravelPal.Managers
 
         public void AddTravel(Travel travel)
         {
+            Travel newTravel = new(travel.Destination, travel.Countries, travel.Travellers);
+            Travels.Add(newTravel);
 
         }
-        public void RemoveTravel(Travel travel)
-        {
-        }
+
+
+        //public void RemoveTravel(Travel travel)
+        //{
+        //}
 
 
 

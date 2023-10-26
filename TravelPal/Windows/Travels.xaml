@@ -30,7 +30,7 @@
          Grid.Row="1"
          Grid.ColumnSpan="2"/>
         <Label
-            ToolTip="Information about the P"
+         ToolTip="Information about the P"
          FontSize="15"
          Content="info"
          Grid.Row="1"  
@@ -39,13 +39,23 @@
          HorizontalContentAlignment="Left"
          Margin="0 0 0 0"/>
         <Label
-          Content="Username"
-          FontSize="15"
-          Grid.Row="2"  
-          Grid.Column="2"
-          VerticalAlignment="Top"
-          HorizontalContentAlignment="Right"
-            />
+         Name="lblUsername"
+         Content=""
+         FontSize="15"
+         Grid.Row="2"  
+         Grid.Column="2"
+         VerticalAlignment="Top"
+         HorizontalContentAlignment="Left"
+         />
+        <Label
+         Name="lblCountry"
+         Content=""
+         FontSize="15"
+         Grid.Row="2"  
+         Grid.Column="2"
+         VerticalAlignment="Top"
+         HorizontalContentAlignment="Right" 
+         />
 
         <Button
          Margin="1 1"
@@ -83,7 +93,7 @@
          />
         <Button
          Margin="15 0"
-         HorizontalAlignment="Right"
+         HorizontalAlignment="Center"
          VerticalAlignment="Bottom"
          Content="User"
          Grid.Column="2" 

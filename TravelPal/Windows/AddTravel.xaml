@@ -45,6 +45,7 @@
          Grid.Row="2"
          Grid.Column="2"/>
         <TextBox
+            Name="txtCity = "
          Margin="30 25 30 0"  
          VerticalAlignment="Top"            
          Grid.Row="2"
@@ -91,16 +92,20 @@
 
 
         <Label
+         Name="lblMeetingDetails"
          VerticalAlignment="Bottom"
          HorizontalContentAlignment="Center"
          Content="Meeting details"
          Grid.Row="3"
-         Grid.Column="2"/>
+         Grid.Column="2"
+         Visibility="Hidden"/>
         <TextBox
+         Name="txtMeetingDetails"
          Margin="30 3 30 30"                  
          Grid.Row="4"
          Grid.Column="2"
-         TextWrapping="Wrap"/>
+         TextWrapping="Wrap"
+         Visibility="Hidden"/>
 
         <Label
          VerticalAlignment="Top"
@@ -124,24 +129,30 @@
          Grid.Row="2"
          Grid.Column="1"/>
         <ComboBox
+         Name="CbTravelPurpose"
          Text="Vaccation"
          Margin="0 00 60 0"
          VerticalAlignment="Top"               
          Grid.Row="3"
-         Grid.Column="1"  />
+         Grid.Column="1" SelectionChanged="CbTravelPurpose_SelectionChanged"  />
 
-        <Label            
+        <Label     
+         Name="lblAllInclusive"
          HorizontalAlignment="Right"
          VerticalAlignment="Bottom"
          Content="    All &#10;Inclusive"
          Grid.Column="1"
-         Grid.Row="2" />
+         Grid.Row="2" 
+         Visibility="Hidden"
+            />
         <CheckBox
+         Name="cbAllInclusive"
          Grid.Column="1"
          Grid.Row="3"
          Margin="0,3,20,0"
          VerticalAlignment="Top" 
-         HorizontalAlignment="Right" />
+         HorizontalAlignment="Right" 
+         Visibility="Hidden"/>
         
         <Label            
          HorizontalAlignment="Left"
@@ -205,7 +216,7 @@
          Grid.Column="2"
          Grid.Row="5"          
          Padding="10"
-         Margin="0 12"
+         Margin="0 12" Click="Button_Click"
             />
     </Grid>
 </Window>

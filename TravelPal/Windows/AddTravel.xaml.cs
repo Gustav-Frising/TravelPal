@@ -2,6 +2,7 @@
 using System.Windows;
 using System.Windows.Controls;
 using TravelPal.Enums;
+using TravelPal.Models.Travels;
 
 namespace TravelPal
 {
@@ -14,7 +15,16 @@ namespace TravelPal
         {
             InitializeComponent();
 
-            cbLocation.Items.Add(" - - Select prio - -");
+
+            foreach (Purpose purpose in Enum.GetValues(typeof(Purpose)))
+            {
+                ListViewItem item = new();
+                item.Content = purpose.ToString();
+                item.Tag = purpose;
+                CbTravelPurpose.Items.Add(item);
+            }
+
+            cbLocation.Items.Add(" - - Select Country - -");
 
             foreach (Country country in Enum.GetValues(typeof(Country)))
             {
@@ -29,8 +39,38 @@ namespace TravelPal
             cbLocation.SelectedIndex = 0;
         }
 
-        private void ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+
+        private void CbTravelPurpose_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
+
+
+            if (CbTravelPurpose.SelectedIndex == 0)
+            {
+                lblAllInclusive.Visibility = Visibility.Visible;
+                cbAllInclusive.Visibility = Visibility.Visible;
+            }
+            else
+            {
+                lblAllInclusive.Visibility = Visibility.Hidden;
+                cbAllInclusive.Visibility = Visibility.Hidden;
+            }
+
+            if (CbTravelPurpose.SelectedIndex == 1)
+            {
+                lblMeetingDetails.Visibility = Visibility.Visible;
+                txtMeetingDetails.Visibility = Visibility.Visible;
+            }
+            else
+            {
+                lblMeetingDetails.Visibility = Visibility.Hidden;
+                txtMeetingDetails.Visibility = Visibility.Hidden;
+            }
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            Travel newTravel = new(txtUsername.Text, txtPassword.Text, (Country)cbLocation.SelectedIndex);
+
 
         }
     }

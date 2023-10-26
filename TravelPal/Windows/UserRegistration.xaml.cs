@@ -1,4 +1,6 @@
-﻿using System.Windows;
+﻿using System;
+using System.Windows;
+using System.Windows.Controls;
 using TravelPal.Enums;
 using TravelPal.Managers;
 using TravelPal.Models.Users;
@@ -14,6 +16,21 @@ namespace TravelPal
         {
 
             InitializeComponent();
+
+            cbLocation.Items.Add(" - - Select Country - -");
+
+            foreach (Country country in Enum.GetValues(typeof(Country)))
+            {
+                //Lägg till i combo box
+                ListViewItem item = new();
+
+                item.Content = country.ToString();
+                item.Tag = country;
+                cbLocation.Items.Add(item);
+            }
+
+            cbLocation.SelectedIndex = 0;
+
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)

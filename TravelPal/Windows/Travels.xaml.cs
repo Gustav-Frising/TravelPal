@@ -11,6 +11,10 @@ namespace TravelPal
         public Travels()
         {
             InitializeComponent();
+            // visa username och land
+            lblUsername.Content = UserManager.SignedInUser.Username;
+            lblCountry.Content = UserManager.SignedInUser.Location;
+
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
