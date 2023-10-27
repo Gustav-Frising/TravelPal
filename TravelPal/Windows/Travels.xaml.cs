@@ -18,6 +18,7 @@ namespace TravelPal
 
 
             InitializeComponent();
+
             // visa username och land
             lblUsername.Content = UserManager.SignedInUser.Username;
             lblCountry.Content = UserManager.SignedInUser.Location;
@@ -27,7 +28,7 @@ namespace TravelPal
                 foreach (var travel in travels)
                 {
                     ListViewItem item = new();
-                    item.Content = travel.GetInfo().ToString();
+                    item.Content = travel.GetInfo();
                     item.Tag = travel;
                     lstTravels.Items.Add(item);
                 }

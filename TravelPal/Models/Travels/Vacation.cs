@@ -13,7 +13,11 @@ namespace TravelPal.Models.Travels
 
         public override string GetInfo()
         {
-            return "";
+            if (AllInclusive == true)
+            {
+                return $"{Countries} - Vacation (All Inclusive) ";
+            }
+            return $"{Destination} - Country: {Countries} ";
         }
     }
 }

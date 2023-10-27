@@ -11,7 +11,12 @@ namespace TravelPal.Models.Travels
         }
         public override string GetInfo()
         {
-            return "";
+            if (MeetingDetails != null)
+            {
+                return $"{Countries} - Work Trip ({MeetingDetails})";
+            }
+            return $"{Destination} - Country: {Countries} ";
+
         }
     }
 }

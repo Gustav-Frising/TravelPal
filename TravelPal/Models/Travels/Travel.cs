@@ -23,7 +23,7 @@ namespace TravelPal.Models.Travels
         }
         public virtual string GetInfo()
         {
-            return $"{Destination} - Country: {Countries} - Travellers: {Travellers}"; ;
+            return "";
         }
         private int CalculateTravelDays()
         {

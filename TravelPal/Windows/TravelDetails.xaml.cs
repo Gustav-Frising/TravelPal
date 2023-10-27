@@ -17,7 +17,8 @@ namespace TravelPal
             txtCity.Text = workTrip.Destination;
             txtCountry.Text = workTrip.Countries.ToString();
             txtTravellers.Text = workTrip.Travellers.ToString();
-            txtTravelPurpose.Text = workTrip.MeetingDetails;
+            txtTravelPurpose.Text = "Work trip";
+            txtTravelSpecifics.Text = workTrip.MeetingDetails;
 
         }
         public TravelDetails(Vacation vacation)
@@ -27,16 +28,24 @@ namespace TravelPal
             txtCity.Text = vacation.Destination;
             txtCountry.Text = vacation.Countries.ToString();
             txtTravellers.Text = vacation.Travellers.ToString();
+            txtTravelPurpose.Text = "Vacation";
             if (vacation.AllInclusive == true)
             {
-                txtTravelPurpose.Text = "All inclusive";
+                txtTravelSpecifics.Text = "All inclusive";
             }
             else
             {
-                txtTravelPurpose.Text = "";
+                txtTravelSpecifics.Text = "";
             }
 
         }
 
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            Travels travelWindow = new();
+            travelWindow.Show();
+
+            Close();
+        }
     }
 }
