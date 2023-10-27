@@ -70,14 +70,24 @@ namespace TravelPal
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            Travel newTravel = new(txtCity.Text, (Country)cbLocation.SelectedIndex, int.Parse(txtTravelers.Text));
+            if (CbTravelPurpose.SelectedIndex == 1)
+            {
+                WorkTrip newWorkTrip = new(txtCity.Text, (Country)cbLocation.SelectedIndex, int.Parse(txtTravelers.Text), txtMeetingDetails.Text);
+                TravelManager.AddTravel(newWorkTrip);
+            }
+            else if (CbTravelPurpose.SelectedIndex == 0)
+            {
 
-            TravelManager.AddTravel(newTravel);
+                Vacation newVacation = new(txtCity.Text, (Country)cbLocation.SelectedIndex, int.Parse(txtTravelers.Text), (bool)cbAllInclusive.IsChecked);
+                TravelManager.AddTravel(newVacation);
+            }
 
             Travels travelsWindow = new();
             travelsWindow.Show();
 
             Close();
         }
+
+
     }
 }

@@ -40,7 +40,7 @@ namespace TravelPal
             bool isUserAdded = UserManager.AddUser(newUser);
             if (isUserAdded)
             {
-                MessageBox.Show("user has been added succesufully");
+                MessageBox.Show("user has been added sucessfully");
             }
             else
             {

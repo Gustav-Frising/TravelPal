@@ -15,9 +15,7 @@ namespace TravelPal.Managers
 
         public static void AddTravel(Travel travel)
         {
-            Travel newTravel = new(travel.Destination, travel.Countries, travel.Travellers);
-            Travels.Add(newTravel);
-
+            Travels.Add(travel);
         }
 
 

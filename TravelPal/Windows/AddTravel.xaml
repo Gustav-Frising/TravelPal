@@ -211,6 +211,7 @@
          Grid.RowSpan="3"/>
 
         <Button
+         Name="btnAddTravel"
          VerticalAlignment="Bottom"
          HorizontalAlignment="Center"
          Content="Add travel"

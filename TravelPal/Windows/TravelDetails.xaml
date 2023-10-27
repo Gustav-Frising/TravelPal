@@ -53,6 +53,7 @@
          Grid.Row="2"
          Grid.Column="1"/>
         <TextBlock
+         Name="txtCity"
          Margin="30 0"
          VerticalAlignment="Center"            
          Grid.Row="2"
@@ -65,6 +66,7 @@
         Grid.Row="3"
         Grid.Column="1"/>
         <TextBlock
+        Name="txtCountry"
         Margin="30 0"
         VerticalAlignment="Center"            
         Grid.Row="3"
@@ -77,6 +79,7 @@
         Grid.Row="4"
         Grid.Column="1"/>
         <TextBlock
+        Name="txtTravellers"
         Margin="30 0"
         VerticalAlignment="Center"            
         Grid.Row="4"
@@ -89,6 +92,7 @@
         Grid.Row="2"
         Grid.Column="2"/>
         <TextBlock
+        Name="txtTravelPurpose"
         Margin="30 0"
         VerticalAlignment="Center"            
         Grid.Row="2"
@@ -101,6 +105,7 @@
         Grid.Row="3"
         Grid.Column="2"/>
         <TextBlock
+        Name="txtTravelSpecifics"
         Margin="30 0"
         VerticalAlignment="Center"            
         Grid.Row="3"
@@ -113,6 +118,7 @@
         Grid.Row="4"
         Grid.Column="2"/>
         <TextBlock
+         Name="txtTravelDate"
          Margin="30 0"
          VerticalAlignment="Center"            
          Grid.Row="4"

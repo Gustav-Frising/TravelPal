@@ -2,7 +2,7 @@
 
 namespace TravelPal.Models.Travels
 {
-    class Vacation : Travel
+    public class Vacation : Travel
     {
         public bool AllInclusive { get; set; }
 
@@ -10,6 +10,7 @@ namespace TravelPal.Models.Travels
         {
             AllInclusive = allInclusive;
         }
+
         public override string GetInfo()
         {
             return "";

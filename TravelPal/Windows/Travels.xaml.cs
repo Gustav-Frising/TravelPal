@@ -27,9 +27,9 @@ namespace TravelPal
                 foreach (var travel in travels)
                 {
                     ListViewItem item = new();
-                    item.Content = travel.GetInfo();
+                    item.Content = travel.GetInfo().ToString();
                     item.Tag = travel;
-                    lstTravels.Items.Add(travel.Destination);
+                    lstTravels.Items.Add(item);
                 }
             }
             catch (NullReferenceException e)
@@ -60,10 +60,25 @@ namespace TravelPal
 
         private void Button_Click_2(object sender, RoutedEventArgs e)
         {
-            TravelDetails travelDetailsWindow = new();
-            travelDetailsWindow.Show();
 
-            Close();
+            // Hämta det selectade item:et i listan
+            ListViewItem selectedItem = (ListViewItem)lstTravels.SelectedItem;
+
+            if (selectedItem.Tag.GetType() == typeof(Vacation))
+            {
+
+                TravelDetails travelDetailsWindow = new((Vacation)selectedItem.Tag);
+                travelDetailsWindow.Show();
+
+                Close();
+            }
+            else if (selectedItem.Tag.GetType() == typeof(WorkTrip))
+            {
+                TravelDetails travelDetailsWindow = new((WorkTrip)selectedItem.Tag);
+                travelDetailsWindow.Show();
+                Close();
+            }
+
         }
     }
 }
