@@ -4,6 +4,7 @@ using System.Windows;
 using System.Windows.Controls;
 using TravelPal.Managers;
 using TravelPal.Models.Travels;
+using TravelPal.Models.Users;
 
 namespace TravelPal
 {
@@ -12,9 +13,12 @@ namespace TravelPal
     /// </summary>
     public partial class Travels : Window
     {
-        List<Travel> travels = TravelManager.Travels;
+
+
         public Travels()
         {
+            User user = (User)UserManager.SignedInUser;
+            List<Travel> travels = user.Travels;
 
 
             InitializeComponent();

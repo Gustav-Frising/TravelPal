@@ -2,7 +2,7 @@
 {
     public enum Country
     {
-        Sweden,
+        Sweden = 1,
         Switzerland,
         Syria,
         Tajikistan,

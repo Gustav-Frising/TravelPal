@@ -8,8 +8,9 @@ namespace TravelPal.Managers
         public static List<IUser> Users { get; set; } = new()
         {
 
-            new User("test", "password", Enums.Country.Sweden),/*{new Travel (Destination = "stockholm",Countries = Enums.Country.Sweden, TravelDays= 5) },*/
-            new Admin("admin", "password", Enums.Country.Sweden)
+            new User ("test", "password", Enums.Country.Sweden ),
+
+            new Admin("admin", "password", Enums.Country.Sweden),
 
         };
         public static IUser? SignedInUser { get; set; }

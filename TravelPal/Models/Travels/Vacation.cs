@@ -1,4 +1,6 @@
-﻿using TravelPal.Enums;
+﻿using System.Collections.Generic;
+using TravelPal.Enums;
+using TravelPal.Models.PackingListItems;
 
 namespace TravelPal.Models.Travels
 {
@@ -6,7 +8,7 @@ namespace TravelPal.Models.Travels
     {
         public bool AllInclusive { get; set; }
 
-        public Vacation(string destination, Country countries, int travellers, bool allInclusive) : base(destination, countries, travellers)
+        public Vacation(string destination, Country countries, int travellers, List<IPackingListItem> packinglist, bool allInclusive) : base(destination, countries, travellers, packinglist)
         {
             AllInclusive = allInclusive;
         }
