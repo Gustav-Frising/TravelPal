@@ -11,7 +11,11 @@
         }
         public string GetInfo()
         {
-            return "";
+            if (Required == true)
+            {
+                return $"{Name} - Required) ";
+            }
+            return $"{Name}";
         }
     }
 }

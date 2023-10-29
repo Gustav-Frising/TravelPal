@@ -11,7 +11,7 @@
         }
         public string GetInfo()
         {
-            return "";
+            return $"{Name} - Quantity: {Quantity}";
         }
     }
 }

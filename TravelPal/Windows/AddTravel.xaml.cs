@@ -3,6 +3,7 @@ using System.Windows;
 using System.Windows.Controls;
 using TravelPal.Enums;
 using TravelPal.Managers;
+using TravelPal.Models.PackingListItems;
 using TravelPal.Models.Travels;
 
 namespace TravelPal
@@ -12,10 +13,19 @@ namespace TravelPal
     /// </summary>
     public partial class AddTravel : Window
     {
+        //List<IPackingListItem> packingItems = new();
         public AddTravel()
         {
             InitializeComponent();
 
+
+            //foreach (var packingItem in packingItems)
+            //{
+            //    ListViewItem item = new();
+            //    item.Content = packingItem.GetInfo();
+            //    item.Tag = packingItem;
+            //    lstPackingList.Items.Add(item);
+            //}
 
             foreach (Purpose purpose in Enum.GetValues(typeof(Purpose)))
             {
@@ -41,6 +51,43 @@ namespace TravelPal
         }
 
 
+
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            if (CbTravelPurpose.SelectedIndex == 1)
+            {
+                WorkTrip newWorkTrip = new(txtCity.Text, (Country)cbLocation.SelectedIndex, int.Parse(txtTravelers.Text),/*(ListViewItem)lstPackingList.,*/ txtMeetingDetails.Text);
+                TravelManager.AddTravel(newWorkTrip);
+            }
+            else if (CbTravelPurpose.SelectedIndex == 0)
+            {
+
+                Vacation newVacation = new(txtCity.Text, (Country)cbLocation.SelectedIndex, int.Parse(txtTravelers.Text),/*(List<IPackingListItem>)lstPackingList.Tag,*/(bool)cbAllInclusive.IsChecked);
+                TravelManager.AddTravel(newVacation);
+            }
+
+            Travels travelsWindow = new();
+            travelsWindow.Show();
+
+            Close();
+        }
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            if (int.Parse(txtQuantity.Text) > 0)
+            {
+                OtherItem newOtherItem = new(txtItem.Text, int.Parse(txtTravelers.Text));
+                lstPackingList.Items.Add(newOtherItem);
+            }
+            else if (cbRequired.IsChecked == true)
+            {
+
+                TravelDocument newTravelDocument = new(txtItem.Text, (bool)cbRequired.IsChecked);
+                lstPackingList.Items.Add(newTravelDocument);
+            }
+
+        }
         private void CbTravelPurpose_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
 
@@ -68,26 +115,19 @@ namespace TravelPal
             }
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void CheckBox_Checked(object sender, RoutedEventArgs e)
         {
-            if (CbTravelPurpose.SelectedIndex == 1)
-            {
-                WorkTrip newWorkTrip = new(txtCity.Text, (Country)cbLocation.SelectedIndex, int.Parse(txtTravelers.Text), txtMeetingDetails.Text);
-                TravelManager.AddTravel(newWorkTrip);
-            }
-            else if (CbTravelPurpose.SelectedIndex == 0)
-            {
-
-                Vacation newVacation = new(txtCity.Text, (Country)cbLocation.SelectedIndex, int.Parse(txtTravelers.Text), (bool)cbAllInclusive.IsChecked);
-                TravelManager.AddTravel(newVacation);
-            }
-
-            Travels travelsWindow = new();
-            travelsWindow.Show();
-
-            Close();
+            cbRequired.Visibility = Visibility.Visible;
+            lblRequired.Visibility = Visibility.Visible;
+            txtQuantity.Visibility = Visibility.Hidden;
+            lblQuantity.Visibility = Visibility.Hidden;
         }
-
-
+        private void CheckBox_UnChecked(object sender, RoutedEventArgs e)
+        {
+            cbRequired.Visibility = Visibility.Hidden;
+            lblRequired.Visibility = Visibility.Hidden;
+            txtQuantity.Visibility = Visibility.Visible;
+            lblQuantity.Visibility = Visibility.Visible;
+        }
     }
 }

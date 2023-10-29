@@ -6,7 +6,7 @@
 
         public string GetInfo()
         {
-            return "";
+            return $"{Name}";
         }
     }
 

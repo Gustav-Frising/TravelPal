@@ -65,7 +65,7 @@
          Grid.Row="3"
          Grid.Column="2"/>
 
-        <Label
+        <Label      
          VerticalAlignment="Top"
          HorizontalContentAlignment="Center"
          Content="Item"     
@@ -73,12 +73,14 @@
          Grid.Row="4"
          Grid.Column="3"/>
         <TextBox
+         Name="txtItem"
          Margin="0 42 0 0"
          VerticalAlignment="Top"            
          Grid.Row="4"
-         Grid.Column="3"/>
+         Grid.Column="3" />
 
         <Label
+         Name="lblQuantity"
          VerticalAlignment="Bottom"
          HorizontalContentAlignment="Left"
          Content="Quantity"
@@ -86,6 +88,7 @@
          Grid.Row="4"
          Grid.Column="3"/>
         <TextBox
+         Name="txtQuantity"
          Margin="0 0 120 0"        
          VerticalAlignment="top"            
          Grid.Row="5"
@@ -164,13 +167,17 @@
          Margin="0 22"/>
         
         <CheckBox
+         Name="cbTravelDocument"
          Grid.Column="3"
          Grid.Row="5"
          Margin="25,0,0,12"
          VerticalAlignment="Bottom" 
-         HorizontalAlignment="Left"/>
+         HorizontalAlignment="Left" 
+         Checked="CheckBox_Checked"
+         Unchecked="CheckBox_UnChecked"/>
 
-        <Label            
+        <Label        
+         Name="lblRequired"
          HorizontalAlignment="Left"
          VerticalAlignment="Bottom"
          Content="Required"
@@ -180,6 +187,7 @@
          Visibility="Hidden"
          />
         <CheckBox
+         Name="cbRequired"
          Grid.Column="3"
          Grid.Row="4"
          Margin="30,0,0,1"
@@ -202,10 +210,11 @@
          Margin="0 12"
          Content="Add Item"
          Grid.Column="3"
-         Grid.Row="5"/>
+         Grid.Row="5" Click="Button_Click_1"/>
 
         <ListView
-            Margin="0 25 0 85"
+         Name="lstPackingList"
+         Margin="0 25 0 85"
          Grid.Row="2"
          Grid.Column="3"
          Grid.RowSpan="3"/>

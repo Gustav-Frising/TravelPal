@@ -5,7 +5,7 @@ namespace TravelPal.Models.Travels
     public class WorkTrip : Travel
     {
         public string MeetingDetails { get; set; }
-        public WorkTrip(string destination, Country countries, int travellers, string meetingDetails) : base(destination, countries, travellers)
+        public WorkTrip(string destination, Country countries, int travellers, /*List<IPackingListItem> packinglist,*/ string meetingDetails) : base(destination, countries, travellers/*, packinglist*/)
         {
             MeetingDetails = meetingDetails;
         }
