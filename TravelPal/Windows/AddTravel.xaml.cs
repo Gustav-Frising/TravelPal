@@ -77,14 +77,20 @@ namespace TravelPal
         {
             if (int.Parse(txtQuantity.Text) > 0)
             {
-                OtherItem newOtherItem = new(txtItem.Text, int.Parse(txtTravelers.Text));
-                lstPackingList.Items.Add(newOtherItem);
+                OtherItem newOtherItem = new(txtItem.Text, int.Parse(txtQuantity.Text));
+                ListViewItem item = new();
+                item.Content = newOtherItem.GetInfo();
+                item.Tag = newOtherItem;
+                lstPackingList.Items.Add(item);
             }
             else if (cbRequired.IsChecked == true)
             {
 
                 TravelDocument newTravelDocument = new(txtItem.Text, (bool)cbRequired.IsChecked);
-                lstPackingList.Items.Add(newTravelDocument);
+                ListViewItem item = new();
+                item.Content = newTravelDocument.GetInfo();
+                item.Tag = newTravelDocument;
+                lstPackingList.Items.Add(item);
             }
 
         }
