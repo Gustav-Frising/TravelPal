@@ -23,7 +23,7 @@ namespace TravelPal.Models.Travels
             {
                 return $"{Countries} - Vacation (All Inclusive) ";
             }
-            return $"{Destination} - Country: {Countries} ";
+            return $"{Countries} - Vacation:";
         }
 
 

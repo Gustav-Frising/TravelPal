@@ -20,19 +20,43 @@ namespace TravelPal.Managers
                         Destination = "stockholm",
                         Countries = Enums.Country.Sweden,
                         Travellers = 2,
+                        AllInclusive = true,
                         Packinglist = new List<IPackingListItem>()
                         {
+                            new TravelDocument()
+                            {
+                                Name = "Health Insurance",
+                                Required = true,
+                            },
+
                             new OtherItem()
                             {
-                                Name = "a",
+                                Name = "Bathing shorts",
                                 Quantity = 1,
                             }
                         }
+                    },
+                     new WorkTrip()
+                    {
+                        Destination = "stockholm",
+                        Countries = Enums.Country.Sweden,
+                        Travellers = 2,
+                        MeetingDetails = "Meeting on Friday at clarion Hotel",
+                        Packinglist = new List<IPackingListItem>()
+                        {
+                            new TravelDocument()
+                            {
+                                Name = "Passport",
+                                Required = true,
+                            },
 
-
+                            new OtherItem()
+                            {
+                                Name = "Briefcase",
+                                Quantity = 1,
+                            }
+                        }
                     }
-
-
                 }
             }
             //new User ("a", "a", Enums.Country.Sweden),

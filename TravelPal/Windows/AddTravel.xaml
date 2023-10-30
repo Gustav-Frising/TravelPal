@@ -183,15 +183,14 @@
          Content="Required"
          Grid.Column="3"
          Grid.Row="4"
-         Margin="10 20"
-         Visibility="Hidden"
+         Visibility="Hidden"        
          />
         <CheckBox
          Name="cbRequired"
          Grid.Column="3"
-         Grid.Row="4"
-         Margin="30,0,0,1"
-         VerticalAlignment="Bottom" 
+         Grid.Row="5"
+         Margin="20 2"
+         VerticalAlignment="Top" 
          HorizontalAlignment="Left" 
          Visibility="Hidden"
          />

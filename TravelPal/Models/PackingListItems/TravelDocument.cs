@@ -4,6 +4,10 @@
     {
         public string Name { get; set; }
         public bool Required { get; set; }
+        public TravelDocument()
+        {
+
+        }
         public TravelDocument(string name, bool required)
         {
             Name = name;
@@ -13,9 +17,9 @@
         {
             if (Required == true)
             {
-                return $"{Name} - Required) ";
+                return $"{Name} - Travel Document (Required) ";
             }
-            return $"{Name}";
+            return $"{Name} - Travel Document ";
         }
     }
 }

@@ -7,6 +7,10 @@ namespace TravelPal.Models.Travels
     public class WorkTrip : Travel
     {
         public string MeetingDetails { get; set; }
+        public WorkTrip()
+        {
+
+        }
         public WorkTrip(string destination, Country countries, int travellers, List<IPackingListItem> packinglist, string meetingDetails) : base(destination, countries, travellers, packinglist)
         {
             MeetingDetails = meetingDetails;
@@ -17,7 +21,7 @@ namespace TravelPal.Models.Travels
             {
                 return $"{Countries} - Work Trip ({MeetingDetails})";
             }
-            return $"{Destination} - Country: {Countries} ";
+            return $"{Countries} - Work Trip";
 
         }
     }

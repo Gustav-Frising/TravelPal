@@ -20,13 +20,22 @@ namespace TravelPal
             InitializeComponent();
 
 
-            //foreach (var packingItem in packingItems)
-            //{
-            //    ListViewItem item = new();
-            //    item.Content = packingItem.GetInfo();
-            //    item.Tag = packingItem;
-            //    lstPackingList.Items.Add(item);
-            //}
+            foreach (EuropeanCountry EuCountry in Enum.GetValues(typeof(EuropeanCountry)))
+            {
+                if (EuCountry.Equals((EuropeanCountry)UserManager.SignedInUser.Location))
+                {
+
+                    TravelDocument newTravelDocument = new("Passport", true);
+                    ListViewItem item = new();
+                    item.Content = newTravelDocument;
+                    item.Tag = newTravelDocument;
+                    lstPackingList.Items.Add(item);
+                    //ListViewItem item = new();
+                    //item.Content = packingItem.GetInfo();
+                    //item.Tag = packingItem;
+                    //lstPackingList.Items.Add(item);
+                }
+            }
 
             foreach (Purpose purpose in Enum.GetValues(typeof(Purpose)))
             {
@@ -83,7 +92,7 @@ namespace TravelPal
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
-            if (cbRequired.IsChecked == true)
+            if (cbTravelDocument.IsChecked == true)
             {
                 TravelDocument newTravelDocument = new(txtItem.Text, (bool)cbRequired.IsChecked);
                 ListViewItem item = new();
@@ -98,12 +107,13 @@ namespace TravelPal
                 item.Content = newOtherItem.GetInfo();
                 item.Tag = newOtherItem;
                 lstPackingList.Items.Add(item);
-                txtItem.Text = "";
-                txtQuantity.Text = "";
-                cbTravelDocument.IsChecked = false;
 
             }
 
+            txtItem.Text = "";
+            txtQuantity.Text = "";
+            cbTravelDocument.IsChecked = false;
+            cbRequired.IsChecked = false;
         }
         private void CbTravelPurpose_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
