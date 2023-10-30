@@ -85,5 +85,14 @@ namespace TravelPal
             }
 
         }
+
+        private void Button_Click_3(object sender, RoutedEventArgs e)
+        {
+            //kolla vilket item som är selectat i lisatn
+            ListViewItem selectedItem = (ListViewItem)lstTravels.SelectedItem;
+
+            // ta bort selected item
+            lstTravels.Items.Remove(selectedItem);
+        }
     }
 }

@@ -15,12 +15,16 @@ namespace TravelPal.Models.Travels
         public DateTime EndDate { get; set; }
         public int TravelDays { get; set; }
 
-        public Travel(string destination, Country country, int travellers/*, List<IPackingListItem> packinglist*/)
+        public Travel()
+        {
+
+        }
+        public Travel(string destination, Country country, int travellers, List<IPackingListItem> packinglist)
         {
             Destination = destination;
             Countries = country;
             Travellers = travellers;
-            //Packinglist = packinglist;
+            Packinglist = packinglist;
         }
         public virtual string GetInfo()
         {

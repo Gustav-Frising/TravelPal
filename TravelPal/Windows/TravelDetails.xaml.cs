@@ -13,6 +13,10 @@ namespace TravelPal
         {
             InitializeComponent();
 
+            foreach (var packinglistitem in workTrip.Packinglist)
+            {
+                lstPackinglist.Items.Add(packinglistitem.GetInfo());
+            }
 
             txtCity.Text = workTrip.Destination;
             txtCountry.Text = workTrip.Countries.ToString();
@@ -20,10 +24,15 @@ namespace TravelPal
             txtTravelPurpose.Text = "Work trip";
             txtTravelSpecifics.Text = workTrip.MeetingDetails;
 
+
         }
         public TravelDetails(Vacation vacation)
         {
             InitializeComponent();
+            foreach (var packinglistitem in vacation.Packinglist)
+            {
+                lstPackinglist.Items.Add(packinglistitem.GetInfo());
+            }
 
             txtCity.Text = vacation.Destination;
             txtCountry.Text = vacation.Countries.ToString();
@@ -37,6 +46,7 @@ namespace TravelPal
             {
                 txtTravelSpecifics.Text = "";
             }
+            lstPackinglist.Tag = vacation.Packinglist;
 
         }
 

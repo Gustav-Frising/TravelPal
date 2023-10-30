@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Windows;
 using System.Windows.Controls;
 using TravelPal.Enums;
@@ -55,15 +56,22 @@ namespace TravelPal
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
+            List<IPackingListItem> packingList = new();
+
+            foreach (ListViewItem item in lstPackingList.Items)
+            {
+                packingList.Add((IPackingListItem)item.Tag);
+            }
+
             if (CbTravelPurpose.SelectedIndex == 1)
             {
-                WorkTrip newWorkTrip = new(txtCity.Text, (Country)cbLocation.SelectedIndex, int.Parse(txtTravelers.Text),/*(ListViewItem)lstPackingList.,*/ txtMeetingDetails.Text);
+                WorkTrip newWorkTrip = new(txtCity.Text, (Country)cbLocation.SelectedIndex, int.Parse(txtTravelers.Text), packingList, txtMeetingDetails.Text);
                 TravelManager.AddTravel(newWorkTrip);
             }
             else if (CbTravelPurpose.SelectedIndex == 0)
             {
 
-                Vacation newVacation = new(txtCity.Text, (Country)cbLocation.SelectedIndex, int.Parse(txtTravelers.Text),/*(List<IPackingListItem>)lstPackingList.Tag,*/(bool)cbAllInclusive.IsChecked);
+                Vacation newVacation = new(txtCity.Text, (Country)cbLocation.SelectedIndex, int.Parse(txtTravelers.Text), packingList, (bool)cbAllInclusive.IsChecked);
                 TravelManager.AddTravel(newVacation);
             }
 
@@ -75,22 +83,25 @@ namespace TravelPal
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
-            if (int.Parse(txtQuantity.Text) > 0)
+            if (cbRequired.IsChecked == true)
+            {
+                TravelDocument newTravelDocument = new(txtItem.Text, (bool)cbRequired.IsChecked);
+                ListViewItem item = new();
+                item.Content = newTravelDocument.GetInfo();
+                item.Tag = newTravelDocument;
+                lstPackingList.Items.Add(item);
+            }
+            else
             {
                 OtherItem newOtherItem = new(txtItem.Text, int.Parse(txtQuantity.Text));
                 ListViewItem item = new();
                 item.Content = newOtherItem.GetInfo();
                 item.Tag = newOtherItem;
                 lstPackingList.Items.Add(item);
-            }
-            else if (cbRequired.IsChecked == true)
-            {
+                txtItem.Text = "";
+                txtQuantity.Text = "";
+                cbTravelDocument.IsChecked = false;
 
-                TravelDocument newTravelDocument = new(txtItem.Text, (bool)cbRequired.IsChecked);
-                ListViewItem item = new();
-                item.Content = newTravelDocument.GetInfo();
-                item.Tag = newTravelDocument;
-                lstPackingList.Items.Add(item);
             }
 
         }
@@ -127,6 +138,7 @@ namespace TravelPal
             lblRequired.Visibility = Visibility.Visible;
             txtQuantity.Visibility = Visibility.Hidden;
             lblQuantity.Visibility = Visibility.Hidden;
+            txtQuantity.Text = "";
         }
         private void CheckBox_UnChecked(object sender, RoutedEventArgs e)
         {

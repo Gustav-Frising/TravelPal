@@ -124,6 +124,7 @@
          Grid.Row="4"
          Grid.Column="2"/>
         <ListView
+         Name="lstPackinglist"
          Grid.Row="3"
          Grid.Column="3"  
          Grid.RowSpan="3"

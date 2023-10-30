@@ -80,7 +80,7 @@
          Content="Remove"
          Grid.Column="1" 
          Grid.Row="4"
-         Padding="10"
+         Padding="10" Click="Button_Click_3"
          />
         <Button
          Margin="15 0"

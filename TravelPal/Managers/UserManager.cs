@@ -1,4 +1,6 @@
 ﻿using System.Collections.Generic;
+using TravelPal.Models.PackingListItems;
+using TravelPal.Models.Travels;
 using TravelPal.Models.Users;
 
 namespace TravelPal.Managers
@@ -7,11 +9,35 @@ namespace TravelPal.Managers
     {
         public static List<IUser> Users { get; set; } = new()
         {
+            new User {
+                Username = "a",
+                Password = "a",
+                Location = Enums.Country.Sweden,
+                Travels = new List<Travel>()
+                {
+                    new Vacation()
+                    {
+                        Destination = "stockholm",
+                        Countries = Enums.Country.Sweden,
+                        Travellers = 2,
+                        Packinglist = new List<IPackingListItem>()
+                        {
+                            new OtherItem()
+                            {
+                                Name = "a",
+                                Quantity = 1,
+                            }
+                        }
 
-            new User ("test", "password", Enums.Country.Sweden ),
 
-            new Admin("admin", "password", Enums.Country.Sweden),
+                    }
 
+
+                }
+            }
+            //new User ("a", "a", Enums.Country.Sweden),
+
+            //new Admin("admin", "password", Enums.Country.Sweden),
         };
         public static IUser? SignedInUser { get; set; }
 

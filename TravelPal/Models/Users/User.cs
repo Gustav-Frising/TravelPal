@@ -8,8 +8,7 @@ namespace TravelPal.Models.Users
     {
         public List<Travel> Travels { get; set; } = new()
         {
-           new Vacation("stockholm", Enums.Country.Sweden, 5, true),
-           new WorkTrip("stockholm", Enums.Country.Sweden, 5, "meeting att clarion hotel 5pm"),
+
         };
         public string Username { get; set; }
         public string Password { get; set; }
