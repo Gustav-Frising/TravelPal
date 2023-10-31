@@ -14,7 +14,7 @@ namespace TravelPal
     /// </summary>
     public partial class AddTravel : Window
     {
-        //List<IPackingListItem> packingItems = new();
+
         public AddTravel()
         {
             InitializeComponent();
@@ -22,18 +22,14 @@ namespace TravelPal
 
             foreach (EuropeanCountry EuCountry in Enum.GetValues(typeof(EuropeanCountry)))
             {
-                if (EuCountry.Equals((EuropeanCountry)UserManager.SignedInUser.Location))
+                if (UserManager.SignedInUser.Location.ToString() == EuCountry.ToString())
                 {
 
                     TravelDocument newTravelDocument = new("Passport", true);
                     ListViewItem item = new();
-                    item.Content = newTravelDocument;
+                    item.Content = newTravelDocument.GetInfo();
                     item.Tag = newTravelDocument;
                     lstPackingList.Items.Add(item);
-                    //ListViewItem item = new();
-                    //item.Content = packingItem.GetInfo();
-                    //item.Tag = packingItem;
-                    //lstPackingList.Items.Add(item);
                 }
             }
 

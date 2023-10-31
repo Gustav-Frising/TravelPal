@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Windows;
 using System.Windows.Controls;
 using TravelPal.Managers;
@@ -17,17 +16,20 @@ namespace TravelPal
 
         public Travels()
         {
-            User user = (User)UserManager.SignedInUser;
-            List<Travel> travels = user.Travels;
-
-
             InitializeComponent();
 
             // visa username och land
             lblUsername.Content = UserManager.SignedInUser.Username;
             lblCountry.Content = UserManager.SignedInUser.Location;
-            try
+
+            if (UserManager.SignedInUser.GetType() == typeof(Admin))
+
+                TravelManager.GetAllTravels(lstTravels);
+
+            else
             {
+                User user = (User)UserManager.SignedInUser;
+                List<Travel> travels = user.Travels;
 
                 foreach (var travel in travels)
                 {
@@ -37,10 +39,9 @@ namespace TravelPal
                     lstTravels.Items.Add(item);
                 }
             }
-            catch (NullReferenceException e)
-            {
-                MessageBox.Show(e.Message);
-            }
+
+
+
 
         }
 
@@ -88,11 +89,8 @@ namespace TravelPal
 
         private void Button_Click_3(object sender, RoutedEventArgs e)
         {
-            //kolla vilket item som är selectat i lisatn
-            ListViewItem selectedItem = (ListViewItem)lstTravels.SelectedItem;
+            TravelManager.RemoveTravel(lstTravels);
 
-            // ta bort selected item
-            lstTravels.Items.Remove(selectedItem);
         }
     }
 }

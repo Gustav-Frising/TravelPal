@@ -54,6 +54,7 @@
          Grid.Column="1"/>
         <TextBlock
          Name="txtCity"
+            Background="MintCream"
          Margin="30 0"
          VerticalAlignment="Center"            
          Grid.Row="2"
@@ -107,6 +108,7 @@
         <TextBlock
         Name="txtTravelSpecifics"
         Margin="30 0"
+        Background="White"
         VerticalAlignment="Center"            
         Grid.Row="3"
         Grid.Column="2"/>

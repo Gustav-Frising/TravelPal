@@ -18,7 +18,7 @@ namespace TravelPal
             string username = txtUsername.Text;
             string password = txtPassword.Text;
 
-            //Använd usermanager för att logga i
+            //Använd usermanager för att logga in
 
             bool isSuccessfulSignIn = UserManager.SignInUser(username, password);
 

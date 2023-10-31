@@ -41,7 +41,7 @@ namespace TravelPal.Managers
                         Destination = "stockholm",
                         Countries = Enums.Country.Sweden,
                         Travellers = 2,
-                        MeetingDetails = "Meeting on Friday at clarion Hotel",
+                        MeetingDetails = "Conferance Friday startin at 8",
                         Packinglist = new List<IPackingListItem>()
                         {
                             new TravelDocument()
@@ -58,10 +58,9 @@ namespace TravelPal.Managers
                         }
                     }
                 }
-            }
-            //new User ("a", "a", Enums.Country.Sweden),
+            },
 
-            //new Admin("admin", "password", Enums.Country.Sweden),
+            new Admin("admin", "password", Enums.Country.Sweden),
         };
         public static IUser? SignedInUser { get; set; }
 
