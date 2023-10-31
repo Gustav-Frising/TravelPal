@@ -20,18 +20,33 @@ namespace TravelPal
             InitializeComponent();
 
 
-            foreach (EuropeanCountry EuCountry in Enum.GetValues(typeof(EuropeanCountry)))
-            {
-                if (UserManager.SignedInUser.Location.ToString() == EuCountry.ToString())
-                {
+            bool exists;
+            exists = Enum.IsDefined(typeof(Country), UserManager.SignedInUser.Location);
 
-                    TravelDocument newTravelDocument = new("Passport", true);
-                    ListViewItem item = new();
-                    item.Content = newTravelDocument.GetInfo();
-                    item.Tag = newTravelDocument;
-                    lstPackingList.Items.Add(item);
-                }
+
+            if (exists = Enum.IsDefined(typeof(Country), UserManager.SignedInUser.Location))
+            {
+
+                TravelDocument newTravelDocument = new("Passport", true);
+                ListViewItem item = new();
+                item.Content = newTravelDocument.GetInfo();
+                item.Tag = newTravelDocument;
+                lstPackingList.Items.Add(item);
             }
+            //foreach (EuropeanCountry EuCountry in Enum.GetValues(typeof(EuropeanCountry)))
+            //{
+
+            //    //if (!EuCountry.ToString().Contains(UserManager.SignedInUser.Location.ToString()))
+            //    //{
+            //    //    continue;
+            //    //}
+
+            //    TravelDocument newTravelDocument = new("Passport", true);
+            //    ListViewItem item = new();
+            //    item.Content = newTravelDocument.GetInfo();
+            //    item.Tag = newTravelDocument;
+            //    lstPackingList.Items.Add(item);
+            //}
 
             foreach (Purpose purpose in Enum.GetValues(typeof(Purpose)))
             {

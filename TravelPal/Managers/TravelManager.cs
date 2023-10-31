@@ -31,9 +31,8 @@ namespace TravelPal.Managers
                 {
                     if (users.GetType() == typeof(User))
                     {
-                        User usertoremove = (User)users;
-                        Travel selectedtravel = (Travel)selectedItem.Tag;
-                        usertoremove.Travels.Remove(selectedtravel);
+                        User selectedUser = (User)users;
+                        selectedUser.Travels.Remove(travel);
                     }
                 }
             }
