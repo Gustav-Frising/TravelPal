@@ -6,7 +6,7 @@ namespace TravelPal.Managers
 {
     public static class TravelManager
     {
-        //public static List<Travel> Traveles { get; set; }
+
         public static void AddTravel(Travel travel)
         {
             User user = (User)UserManager.SignedInUser;
@@ -36,7 +36,6 @@ namespace TravelPal.Managers
                     }
                 }
             }
-
         }
         static public void GetAllTravels(ListView view)
         {

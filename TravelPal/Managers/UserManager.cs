@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Windows;
 using TravelPal.Models.PackingListItems;
 using TravelPal.Models.Travels;
 using TravelPal.Models.Users;
@@ -66,11 +67,17 @@ namespace TravelPal.Managers
 
         public static bool AddUser(IUser user)
         {
-            if (ValidateUsername(user.Username))
+            if (ValidateUser(user.Username))
             {
                 User newUser = new(user.Username, user.Password, user.Location);
+                if (user.Location <= 0)
+                {
+                    MessageBox.Show("You must add Country");
+                    return false;
+                }
+                else
 
-                Users.Add(newUser);
+                    Users.Add(newUser);
 
                 return true;
             }
@@ -84,7 +91,7 @@ namespace TravelPal.Managers
         {
             return true;
         }
-        private static bool ValidateUsername(string username)
+        private static bool ValidateUser(string username/*, string password, Enum country*/)
         {
             bool isValidUSername = true;
 

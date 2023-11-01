@@ -35,6 +35,7 @@ namespace TravelPal
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
+
             User newUser = new(txtUsername.Text, txtPassword.Text, (Country)cbLocation.SelectedIndex);
 
             bool isUserAdded = UserManager.AddUser(newUser);
@@ -46,8 +47,6 @@ namespace TravelPal
             {
                 MessageBox.Show("User could not be added");
             }
-
-
         }
 
         private void Button_Click_1(object sender, RoutedEventArgs e)

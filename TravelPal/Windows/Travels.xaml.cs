@@ -23,9 +23,10 @@ namespace TravelPal
             lblCountry.Content = UserManager.SignedInUser.Location;
 
             if (UserManager.SignedInUser.GetType() == typeof(Admin))
+            {
 
                 TravelManager.GetAllTravels(lstTravels);
-
+            }
             else
             {
                 User user = (User)UserManager.SignedInUser;
@@ -66,31 +67,34 @@ namespace TravelPal
 
         private void Button_Click_2(object sender, RoutedEventArgs e)
         {
-
-            // Hämta det selectade item:et i listan
-            ListViewItem selectedItem = (ListViewItem)lstTravels.SelectedItem;
-
-            if (selectedItem.Tag.GetType() == typeof(Vacation))
+            if ((ListViewItem)lstTravels.SelectedItem != null)
             {
+                // Hämta det selectade item:et i listan
+                ListViewItem selectedItem = (ListViewItem)lstTravels.SelectedItem;
 
-                TravelDetails travelDetailsWindow = new((Vacation)selectedItem.Tag);
-                travelDetailsWindow.Show();
+                if (selectedItem.Tag.GetType() == typeof(Vacation))
+                {
 
-                Close();
+                    TravelDetails travelDetailsWindow = new((Vacation)selectedItem.Tag);
+                    travelDetailsWindow.Show();
+
+                    Close();
+                }
+                else if (selectedItem.Tag.GetType() == typeof(WorkTrip))
+                {
+                    TravelDetails travelDetailsWindow = new((WorkTrip)selectedItem.Tag);
+                    travelDetailsWindow.Show();
+                    Close();
+                }
             }
-            else if (selectedItem.Tag.GetType() == typeof(WorkTrip))
-            {
-                TravelDetails travelDetailsWindow = new((WorkTrip)selectedItem.Tag);
-                travelDetailsWindow.Show();
-                Close();
-            }
-
         }
 
         private void Button_Click_3(object sender, RoutedEventArgs e)
         {
-            TravelManager.RemoveTravel(lstTravels);
-
+            if ((ListViewItem)lstTravels.SelectedItem != null)
+            {
+                TravelManager.RemoveTravel(lstTravels);
+            }
         }
     }
 }

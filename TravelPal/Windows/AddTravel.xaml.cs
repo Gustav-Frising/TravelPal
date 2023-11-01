@@ -20,11 +20,10 @@ namespace TravelPal
             InitializeComponent();
 
 
-            bool exists;
-            exists = Enum.IsDefined(typeof(Country), UserManager.SignedInUser.Location);
 
 
-            if (exists = Enum.IsDefined(typeof(Country), UserManager.SignedInUser.Location))
+
+            if (Enum.IsDefined(typeof(Country), UserManager.SignedInUser.Location.ToString()) && !Enum.IsDefined(typeof(EuropeanCountry), UserManager.SignedInUser.Location.ToString()))
             {
 
                 TravelDocument newTravelDocument = new("Passport", true);
@@ -33,20 +32,6 @@ namespace TravelPal
                 item.Tag = newTravelDocument;
                 lstPackingList.Items.Add(item);
             }
-            //foreach (EuropeanCountry EuCountry in Enum.GetValues(typeof(EuropeanCountry)))
-            //{
-
-            //    //if (!EuCountry.ToString().Contains(UserManager.SignedInUser.Location.ToString()))
-            //    //{
-            //    //    continue;
-            //    //}
-
-            //    TravelDocument newTravelDocument = new("Passport", true);
-            //    ListViewItem item = new();
-            //    item.Content = newTravelDocument.GetInfo();
-            //    item.Tag = newTravelDocument;
-            //    lstPackingList.Items.Add(item);
-            //}
 
             foreach (Purpose purpose in Enum.GetValues(typeof(Purpose)))
             {
@@ -61,7 +46,7 @@ namespace TravelPal
             foreach (Country country in Enum.GetValues(typeof(Country)))
             {
                 //Lägg till i combo box
-                ListViewItem item = new();
+                ComboBoxItem item = new();
 
                 item.Content = country.ToString();
                 item.Tag = country;
@@ -93,6 +78,11 @@ namespace TravelPal
 
                 Vacation newVacation = new(txtCity.Text, (Country)cbLocation.SelectedIndex, int.Parse(txtTravelers.Text), packingList, (bool)cbAllInclusive.IsChecked);
                 TravelManager.AddTravel(newVacation);
+            }
+            else
+            {
+                Travel newTravel = new(txtCity.Text, (Country)cbLocation.SelectedIndex, int.Parse(txtTravelers.Text), packingList);
+                TravelManager.AddTravel(newTravel);
             }
 
             Travels travelsWindow = new();
