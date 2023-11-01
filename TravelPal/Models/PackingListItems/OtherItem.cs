@@ -8,7 +8,7 @@
         {
 
         }
-        public OtherItem(string name, int quantity)
+        public OtherItem(string name, int quantity = 1)
         {
             Name = name;
             Quantity = quantity;

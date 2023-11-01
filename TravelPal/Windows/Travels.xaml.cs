@@ -24,14 +24,13 @@ namespace TravelPal
 
             if (UserManager.SignedInUser.GetType() == typeof(Admin))
             {
-
+                btnAddTravel.Visibility = Visibility.Hidden;
                 TravelManager.GetAllTravels(lstTravels);
             }
             else
             {
                 User user = (User)UserManager.SignedInUser;
                 List<Travel> travels = user.Travels;
-
                 foreach (var travel in travels)
                 {
                     ListViewItem item = new();
@@ -86,6 +85,16 @@ namespace TravelPal
                     travelDetailsWindow.Show();
                     Close();
                 }
+                else
+                {
+                    TravelDetails travelDetailsWindow = new((Travel)selectedItem.Tag);
+                    travelDetailsWindow.Show();
+                    Close();
+                }
+            }
+            else
+            {
+                MessageBox.Show("");
             }
         }
 

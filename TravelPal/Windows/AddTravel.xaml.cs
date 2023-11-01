@@ -61,60 +61,118 @@ namespace TravelPal
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            List<IPackingListItem> packingList = new();
-
-            foreach (ListViewItem item in lstPackingList.Items)
+            try
             {
-                packingList.Add((IPackingListItem)item.Tag);
-            }
+                List<IPackingListItem> packingList = new();
 
-            if (CbTravelPurpose.SelectedIndex == 1)
+                foreach (ListViewItem item in lstPackingList.Items)
+                {
+                    packingList.Add((IPackingListItem)item.Tag);
+                }
+                if (string.IsNullOrWhiteSpace(txtCity.Text) || (Country)cbLocation.SelectedIndex <= 0 || string.IsNullOrWhiteSpace(txtTravelers.Text))
+                {
+                    MessageBox.Show("must fill all required fields");
+                }
+                if (int.Parse(txtTravelers.Text) <= 0)
+                {
+                    MessageBox.Show("You can not Travel without travelers");
+                }
+                else
+                {
+                    if (CbTravelPurpose.SelectedIndex == 1)
+                    {
+                        WorkTrip newWorkTrip = new(txtCity.Text, (Country)cbLocation.SelectedIndex, int.Parse(txtTravelers.Text), packingList, txtMeetingDetails.Text);
+                        TravelManager.AddTravel(newWorkTrip);
+                    }
+                    else if (CbTravelPurpose.SelectedIndex == 0)
+                    {
+
+                        Vacation newVacation = new(txtCity.Text, (Country)cbLocation.SelectedIndex, int.Parse(txtTravelers.Text), packingList, (bool)cbAllInclusive.IsChecked);
+                        TravelManager.AddTravel(newVacation);
+                    }
+                    else
+                    {
+                        Travel newTravel = new(txtCity.Text, (Country)cbLocation.SelectedIndex, int.Parse(txtTravelers.Text), packingList);
+                        TravelManager.AddTravel(newTravel);
+                    }
+
+
+                    Travels travelsWindow = new();
+                    travelsWindow.Show();
+                    Close();
+                }
+            }
+            catch (FormatException)
             {
-                WorkTrip newWorkTrip = new(txtCity.Text, (Country)cbLocation.SelectedIndex, int.Parse(txtTravelers.Text), packingList, txtMeetingDetails.Text);
-                TravelManager.AddTravel(newWorkTrip);
+                MessageBox.Show("Must write in the correct format");
             }
-            else if (CbTravelPurpose.SelectedIndex == 0)
+            catch (OverflowException)
             {
-
-                Vacation newVacation = new(txtCity.Text, (Country)cbLocation.SelectedIndex, int.Parse(txtTravelers.Text), packingList, (bool)cbAllInclusive.IsChecked);
-                TravelManager.AddTravel(newVacation);
+                MessageBox.Show("The number is too big");
             }
-            else
-            {
-                Travel newTravel = new(txtCity.Text, (Country)cbLocation.SelectedIndex, int.Parse(txtTravelers.Text), packingList);
-                TravelManager.AddTravel(newTravel);
-            }
-
-            Travels travelsWindow = new();
-            travelsWindow.Show();
-
-            Close();
         }
+
+
+
+
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
-            if (cbTravelDocument.IsChecked == true)
+            try
             {
-                TravelDocument newTravelDocument = new(txtItem.Text, (bool)cbRequired.IsChecked);
-                ListViewItem item = new();
-                item.Content = newTravelDocument.GetInfo();
-                item.Tag = newTravelDocument;
-                lstPackingList.Items.Add(item);
-            }
-            else
-            {
-                OtherItem newOtherItem = new(txtItem.Text, int.Parse(txtQuantity.Text));
-                ListViewItem item = new();
-                item.Content = newOtherItem.GetInfo();
-                item.Tag = newOtherItem;
-                lstPackingList.Items.Add(item);
+                if (string.IsNullOrWhiteSpace(txtItem.Text))
+                {
+                    MessageBox.Show("You must write the name of your item");
+                }
+                else
+                {
+
+                    if (cbTravelDocument.IsChecked == true)
+                    {
+                        TravelDocument newTravelDocument = new(txtItem.Text, (bool)cbRequired.IsChecked);
+                        ListViewItem item = new();
+                        item.Content = newTravelDocument.GetInfo();
+                        item.Tag = newTravelDocument;
+                        lstPackingList.Items.Add(item);
+                    }
+                    else
+                    {
+                        if (string.IsNullOrWhiteSpace(txtQuantity.Text))
+                        {
+                            OtherItem newOtherItem = new(txtItem.Text);
+                            ListViewItem item = new();
+                            item.Content = newOtherItem.GetInfo();
+                            item.Tag = newOtherItem;
+                            lstPackingList.Items.Add(item);
+                        }
+                        else
+                        {
+                            OtherItem newOtherItem = new(txtItem.Text, int.Parse(txtQuantity.Text));
+                            ListViewItem item = new();
+                            item.Content = newOtherItem.GetInfo();
+                            item.Tag = newOtherItem;
+                            lstPackingList.Items.Add(item);
+                        }
+
+                    }
+                }
+
+
+                txtItem.Text = "";
+                txtQuantity.Text = "";
+                cbTravelDocument.IsChecked = false;
+                cbRequired.IsChecked = false;
 
             }
+            catch (FormatException)
+            {
+                MessageBox.Show("Must write in the correct format");
+            }
+            catch (OverflowException)
+            {
+                MessageBox.Show("The number is too big");
+            }
 
-            txtItem.Text = "";
-            txtQuantity.Text = "";
-            cbTravelDocument.IsChecked = false;
-            cbRequired.IsChecked = false;
         }
         private void CbTravelPurpose_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
@@ -160,3 +218,4 @@ namespace TravelPal
         }
     }
 }
+

@@ -75,9 +75,13 @@ namespace TravelPal.Managers
                     MessageBox.Show("You must add Country");
                     return false;
                 }
-                else
+                else if (string.IsNullOrWhiteSpace(user.Password))
+                {
+                    MessageBox.Show("Must add a password");
+                    return false;
+                }
 
-                    Users.Add(newUser);
+                Users.Add(newUser);
 
                 return true;
             }

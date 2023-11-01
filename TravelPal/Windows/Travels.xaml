@@ -58,6 +58,7 @@
          />
 
         <Button
+         Name="btnAddTravel"
          Margin="1 1"
          HorizontalAlignment="Right"
          VerticalAlignment="Bottom"

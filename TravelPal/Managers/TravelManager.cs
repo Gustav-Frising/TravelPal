@@ -47,6 +47,10 @@ namespace TravelPal.Managers
                     continue;
                 }
                 user = (User)newUser;
+                ListViewItem itemUser = new();
+                itemUser.Content = user.Username;
+                itemUser.Tag = user;
+                view.Items.Add(itemUser);
                 foreach (Travel travel in user.Travels)
                 {
                     ListViewItem item = new();

@@ -49,6 +49,20 @@ namespace TravelPal
             lstPackinglist.Tag = vacation.Packinglist;
 
         }
+        public TravelDetails(Travel travel)
+        {
+            InitializeComponent();
+
+            foreach (var packinglistitem in travel.Packinglist)
+            {
+                lstPackinglist.Items.Add(packinglistitem.GetInfo());
+            }
+
+            txtCity.Text = travel.Destination;
+            txtCountry.Text = travel.Countries.ToString();
+            txtTravellers.Text = travel.Travellers.ToString();
+            lstPackinglist.Tag = travel.Packinglist;
+        }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
