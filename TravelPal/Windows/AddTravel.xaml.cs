@@ -216,6 +216,75 @@ namespace TravelPal
             txtQuantity.Visibility = Visibility.Visible;
             lblQuantity.Visibility = Visibility.Visible;
         }
+
+        private void cbLocation_DropDownClosed(object sender, EventArgs e)
+        {
+            bool found = false;
+
+            TravelDocument notrequired = new("Passport", false);
+            ListViewItem item1 = TravelManager.NewTravelDocument(notrequired);
+
+
+            TravelDocument required = new("Passport", true);
+            ListViewItem item = TravelManager.NewTravelDocument(required);
+
+
+
+            if (Enum.IsDefined(typeof(EuropeanCountry), UserManager.SignedInUser.Location.ToString()) &&
+                !Enum.IsDefined(typeof(EuropeanCountry), cbLocation.Text) &&
+                 cbLocation.SelectedIndex > 0)
+            {
+
+                foreach (ListViewItem packingitem in lstPackingList.Items)
+                {
+
+                    if (packingitem.Content.ToString() == "Passport - Travel Document " || packingitem.Content.ToString() == "Passport - Travel Document (Required) ")
+                    {
+                        // If a match was found break the loop.
+
+                        lstPackingList.Items.Remove(packingitem);
+                        lstPackingList.Items.Add(item);
+                        found = true;
+                        break;
+                    }
+
+                }
+                if (!found)
+                {
+
+                    lstPackingList.Items.Add(item);
+                }
+
+            }
+            if (Enum.IsDefined(typeof(EuropeanCountry), UserManager.SignedInUser.Location.ToString()) &&
+                Enum.IsDefined(typeof(EuropeanCountry), cbLocation.Text) &&
+                cbLocation.SelectedIndex > 0)
+            {
+                foreach (ListViewItem packingitem in lstPackingList.Items)
+                {
+
+                    if (packingitem.Content.ToString() == "Passport - Travel Document " || packingitem.Content.ToString() == "Passport - Travel Document (Required) ")
+                    {
+
+                        // If a match was found break the loop.
+                        MessageBox.Show("found item");
+                        lstPackingList.Items.Remove(packingitem);
+                        lstPackingList.Items.Add(item1);
+                        found = true;
+                        break;
+
+                    }
+
+                }
+                if (!found)
+                {
+
+                    lstPackingList.Items.Add(item1);
+                }
+            }
+        }
+
+
     }
 }
 

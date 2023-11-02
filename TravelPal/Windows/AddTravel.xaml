@@ -119,11 +119,13 @@
          Grid.Row="2"
          Grid.Column="1"/>
         <ComboBox
-            Name="cbLocation"
+         Name="cbLocation"
+         SelectedValuePath="Content"
          Margin=" 0 25 60 0"
          VerticalAlignment="Top"            
          Grid.Row="2"
-         Grid.Column="1"/>
+         Grid.Column="1"         
+         DropDownClosed="cbLocation_DropDownClosed"/>
 
         <Label
          VerticalAlignment="Bottom"

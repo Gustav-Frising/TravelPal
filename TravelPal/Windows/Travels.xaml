@@ -45,10 +45,11 @@
          Grid.Row="2"  
          Grid.Column="2"
          VerticalAlignment="Top"
-         HorizontalContentAlignment="Left"
+         HorizontalContentAlignment="Right" 
          />
         <Label
          Name="lblCountry"
+         Margin="0 25"
          Content=""
          FontSize="15"
          Grid.Row="2"  
@@ -91,15 +92,17 @@
          Grid.Column="2" 
          Grid.Row="4"
          Padding="10" Click="Button_Click"
+            
          />
         <Button
          Margin="15 0"
-         HorizontalAlignment="Center"
+         HorizontalAlignment="Right"
          VerticalAlignment="Bottom"
          Content="User"
          Grid.Column="2" 
          Grid.Row="2"
          Padding="10"
+         Visibility="Hidden"
          /> 
         
         <ListView

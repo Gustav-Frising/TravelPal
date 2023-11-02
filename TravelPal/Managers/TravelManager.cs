@@ -1,4 +1,5 @@
 ﻿using System.Windows.Controls;
+using TravelPal.Models.PackingListItems;
 using TravelPal.Models.Travels;
 using TravelPal.Models.Users;
 
@@ -48,7 +49,7 @@ namespace TravelPal.Managers
                 }
                 user = (User)newUser;
                 ListViewItem itemUser = new();
-                itemUser.Content = user.Username;
+                itemUser.Content = $"User: {user.Username}";
                 itemUser.Tag = user;
                 view.Items.Add(itemUser);
                 foreach (Travel travel in user.Travels)
@@ -61,6 +62,13 @@ namespace TravelPal.Managers
 
             }
 
+        }
+        public static ListViewItem NewTravelDocument(TravelDocument travelDocument)
+        {
+            ListViewItem item = new();
+            item.Content = travelDocument.GetInfo();
+            item.Tag = travelDocument;
+            return item;
         }
     }
 }

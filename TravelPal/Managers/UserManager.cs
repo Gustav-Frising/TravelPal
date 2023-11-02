@@ -11,8 +11,8 @@ namespace TravelPal.Managers
         public static List<IUser> Users { get; set; } = new()
         {
             new User {
-                Username = "a",
-                Password = "a",
+                Username = "user",
+                Password = "password",
                 Location = Enums.Country.Sweden,
                 Travels = new List<Travel>()
                 {
