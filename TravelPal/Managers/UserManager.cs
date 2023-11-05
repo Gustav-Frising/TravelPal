@@ -8,6 +8,7 @@ namespace TravelPal.Managers
 {
     public static class UserManager
     {
+        //add existing user with 2 travels
         public static List<IUser> Users { get; set; } = new()
         {
             new User {
@@ -65,6 +66,8 @@ namespace TravelPal.Managers
         };
         public static IUser? SignedInUser { get; set; }
 
+
+        //Add user to list
         public static bool AddUser(IUser user)
         {
             if (ValidateUser(user.Username))
@@ -95,7 +98,9 @@ namespace TravelPal.Managers
         {
             return true;
         }
-        private static bool ValidateUser(string username/*, string password, Enum country*/)
+
+        //Check if username exists
+        private static bool ValidateUser(string username)
         {
             bool isValidUSername = true;
 

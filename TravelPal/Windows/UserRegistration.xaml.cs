@@ -17,11 +17,13 @@ namespace TravelPal
 
             InitializeComponent();
 
+
+            //Load combobox with enum
             cbLocation.Items.Add(" - - Select Country - -");
 
             foreach (Country country in Enum.GetValues(typeof(Country)))
             {
-                //Lägg till i combo box
+
                 ListViewItem item = new();
 
                 item.Content = country.ToString();
@@ -35,6 +37,7 @@ namespace TravelPal
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
+            //add user if requrements are met
 
             User newUser = new(txtUsername.Text, txtPassword.Text, (Country)cbLocation.SelectedIndex);
 
@@ -42,6 +45,10 @@ namespace TravelPal
             if (isUserAdded)
             {
                 MessageBox.Show("user has been added sucessfully");
+                MainWindow mainwindow = new();
+                mainwindow.Show();
+
+                Close();
             }
             else
             {

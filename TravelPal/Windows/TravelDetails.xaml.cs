@@ -9,6 +9,7 @@ namespace TravelPal
     public partial class TravelDetails : Window
     {
 
+        //show details depending on what type of travel it is
         public TravelDetails(WorkTrip workTrip)
         {
             InitializeComponent();

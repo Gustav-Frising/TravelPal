@@ -18,7 +18,7 @@
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="20"/>
                 <ColumnDefinition/>
-                <ColumnDefinition/>
+                <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="20"/>
             </Grid.ColumnDefinitions>
         <Label
@@ -30,7 +30,7 @@
          Grid.Row="1"
          Grid.ColumnSpan="2"/>
         <Label
-         ToolTip="Information about the P"
+         ToolTip="Add, Remove and view different travels that"
          FontSize="15"
          Content="info"
          Grid.Row="1"  
@@ -109,6 +109,8 @@
          Name="lstTravels"
          Grid.Row="3"
          Grid.Column="1"
+         Grid.ColumnSpan="2"
+            Margin="0 0 120 0"
          />
 
     </Grid>

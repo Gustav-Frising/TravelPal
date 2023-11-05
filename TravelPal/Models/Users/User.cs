@@ -6,10 +6,8 @@ namespace TravelPal.Models.Users
 {
     public class User : IUser
     {
-        public List<Travel> Travels { get; set; } = new()
-        {
+        public List<Travel> Travels { get; set; } = new();
 
-        };
         public string Username { get; set; }
         public string Password { get; set; }
         public Country Location { get; set; }

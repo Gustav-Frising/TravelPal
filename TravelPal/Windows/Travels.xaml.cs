@@ -18,10 +18,11 @@ namespace TravelPal
         {
             InitializeComponent();
 
-            // visa username och land
+            // Show username & country  
             lblUsername.Content = UserManager.SignedInUser.Username;
             lblCountry.Content = UserManager.SignedInUser.Location;
 
+            // If admin load listview with all travels else load users travels
             if (UserManager.SignedInUser.GetType() == typeof(Admin))
             {
                 btnAddTravel.Visibility = Visibility.Hidden;
@@ -64,13 +65,15 @@ namespace TravelPal
             Close();
         }
 
+        // Travel details
         private void Button_Click_2(object sender, RoutedEventArgs e)
         {
             if ((ListViewItem)lstTravels.SelectedItem != null)
             {
-                // Hämta det selectade item:et i listan
+
                 ListViewItem selectedItem = (ListViewItem)lstTravels.SelectedItem;
 
+                //check which type of travel it is and send it to traveldetailsWindow
                 if (selectedItem.Tag.GetType() == typeof(Vacation))
                 {
 
@@ -94,15 +97,19 @@ namespace TravelPal
             }
             else
             {
-                MessageBox.Show("");
+                MessageBox.Show("you must choose a list to view");
             }
         }
-
+        //Remove travel
         private void Button_Click_3(object sender, RoutedEventArgs e)
         {
             if ((ListViewItem)lstTravels.SelectedItem != null)
             {
                 TravelManager.RemoveTravel(lstTravels);
+            }
+            else
+            {
+                MessageBox.Show("you must select an item, to remove");
             }
         }
     }

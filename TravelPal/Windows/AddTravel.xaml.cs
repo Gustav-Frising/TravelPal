@@ -21,7 +21,7 @@ namespace TravelPal
 
 
 
-
+            //if user lives outside of eu always add a passport set to required
 
             if (Enum.IsDefined(typeof(Country), UserManager.SignedInUser.Location.ToString()) && !Enum.IsDefined(typeof(EuropeanCountry), UserManager.SignedInUser.Location.ToString()))
             {
@@ -58,7 +58,7 @@ namespace TravelPal
 
 
 
-
+        // Show details depending on whet trip was selected
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             try
@@ -110,12 +110,18 @@ namespace TravelPal
             {
                 MessageBox.Show("The number is too big");
             }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+
+
         }
 
 
 
 
-
+        // add packinglist item to list
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
             try
@@ -137,6 +143,7 @@ namespace TravelPal
                     }
                     else
                     {
+                        // set quantity to 1 if no number is written
                         if (string.IsNullOrWhiteSpace(txtQuantity.Text))
                         {
                             OtherItem newOtherItem = new(txtItem.Text);
@@ -171,6 +178,10 @@ namespace TravelPal
             catch (OverflowException)
             {
                 MessageBox.Show("The number is too big");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
             }
 
         }
@@ -228,7 +239,7 @@ namespace TravelPal
             TravelDocument required = new("Passport", true);
             ListViewItem item = TravelManager.NewTravelDocument(required);
 
-
+            //add passport set to requred if user lives in EU and travels outside EU
 
             if (Enum.IsDefined(typeof(EuropeanCountry), UserManager.SignedInUser.Location.ToString()) &&
                 !Enum.IsDefined(typeof(EuropeanCountry), cbLocation.Text) &&
@@ -256,6 +267,8 @@ namespace TravelPal
                 }
 
             }
+
+            // add passport not set to required if User lives in eu and tavels within eu
             if (Enum.IsDefined(typeof(EuropeanCountry), UserManager.SignedInUser.Location.ToString()) &&
                 Enum.IsDefined(typeof(EuropeanCountry), cbLocation.Text) &&
                 cbLocation.SelectedIndex > 0)
@@ -266,8 +279,7 @@ namespace TravelPal
                     if (packingitem.Content.ToString() == "Passport - Travel Document " || packingitem.Content.ToString() == "Passport - Travel Document (Required) ")
                     {
 
-                        // If a match was found break the loop.
-                        MessageBox.Show("found item");
+                        // If a match was found break the loop.                       
                         lstPackingList.Items.Remove(packingitem);
                         lstPackingList.Items.Add(item1);
                         found = true;
