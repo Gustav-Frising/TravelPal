@@ -90,14 +90,14 @@ namespace TravelPal.Managers
             }
             return false;
         }
-        public static void RemoveUSer(IUser user)
-        {
+        //public static void RemoveUSer(IUser user)
+        //{
 
-        }
-        public static bool UppdateUsername()
-        {
-            return true;
-        }
+        //}
+        //public static bool UppdateUsername()
+        //{
+        //    return true;
+        //}
 
         //Check if username exists
         private static bool ValidateUser(string username)

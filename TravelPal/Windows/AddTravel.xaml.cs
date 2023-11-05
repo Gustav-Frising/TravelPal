@@ -71,7 +71,7 @@ namespace TravelPal
                 }
                 if (string.IsNullOrWhiteSpace(txtCity.Text) || (Country)cbLocation.SelectedIndex <= 0 || string.IsNullOrWhiteSpace(txtTravelers.Text))
                 {
-                    MessageBox.Show("must fill all required fields");
+                    MessageBox.Show("must fill all required fields *");
                 }
                 if (int.Parse(txtTravelers.Text) <= 0)
                 {
@@ -104,7 +104,7 @@ namespace TravelPal
             }
             catch (FormatException)
             {
-                MessageBox.Show("Must write in the correct format");
+                MessageBox.Show("Must write in the correct format, numbers for travelers");
             }
             catch (OverflowException)
             {
@@ -173,7 +173,7 @@ namespace TravelPal
             }
             catch (FormatException)
             {
-                MessageBox.Show("Must write in the correct format");
+                MessageBox.Show("Must write in the correct format, numbers for Quantity");
             }
             catch (OverflowException)
             {

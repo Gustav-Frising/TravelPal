@@ -32,20 +32,15 @@
          Grid.Column="1"
          Grid.Row="1"
          Grid.ColumnSpan="3"/>
-        <Label
-         Content="Packing list"
-         Grid.Row="2"
-         Grid.Column="3"
-         VerticalAlignment="Top"
-         HorizontalContentAlignment="Center"/>
+        
         <Label
          VerticalAlignment="Top"
          HorizontalContentAlignment="Center"
-         Content="City"
+         Content="City *"
          Grid.Row="2"
          Grid.Column="2"/>
         <TextBox
-            Name="txtCity"
+         Name="txtCity"
          Margin="30 25 30 0"  
          VerticalAlignment="Top"            
          Grid.Row="2"
@@ -54,7 +49,7 @@
         <Label
          VerticalAlignment="Bottom"
          HorizontalContentAlignment="Center"
-         Content="Travelers"
+         Content="Travelers *"
          Margin="0 0 0 0"
          Grid.Row="2"
          Grid.Column="2"/>
@@ -114,7 +109,7 @@
         <Label
          VerticalAlignment="Top"
          HorizontalContentAlignment="Center"
-         Content="Country"
+         Content="Country *"
          Margin="0 0 60 0"
          Grid.Row="2"
          Grid.Column="1"/>
@@ -160,7 +155,7 @@
          VerticalAlignment="Top" 
          HorizontalAlignment="Right" 
          Visibility="Hidden"/>
-        
+
         <Label            
          HorizontalAlignment="Left"
          VerticalAlignment="Top"
@@ -168,7 +163,6 @@
          Grid.Column="3"
          Grid.Row="5"
          Margin="0 22"/>
-        
         <CheckBox
          Name="cbTravelDocument"
          Grid.Column="3"
@@ -198,7 +192,13 @@
          Visibility="Hidden"
          />
 
-        <Calendar
+        <Label
+            Grid.Row="3"
+            Grid.Column="1"
+            VerticalAlignment="Bottom"
+            HorizontalAlignment="Left"
+            Content="NOT IMPEMENTED"/>
+            <Calendar
          HorizontalAlignment="Left"
          VerticalAlignment="Top"
          Grid.Row="4"
@@ -215,6 +215,12 @@
          Grid.Column="3"
          Grid.Row="5" Click="Button_Click_1"/>
 
+        <Label
+         Content="Packing list"
+         Grid.Row="2"
+         Grid.Column="3"
+         VerticalAlignment="Top"
+         HorizontalContentAlignment="Center"/>
         <ListView
          Name="lstPackingList"
          Margin="0 25 0 85"
